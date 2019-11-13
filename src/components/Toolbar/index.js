@@ -1,5 +1,6 @@
 // @flow
 import * as React from "react";
+import ReactDOM from "react-dom";
 import { Portal } from "react-portal";
 import { Editor, findDOMNode } from "slate-react";
 import { Node, Value } from "slate";
@@ -164,29 +165,28 @@ export default class Toolbar extends React.Component<Props, State> {
       return null;
     }
 
-    return (
-      <React.Fragment>
-        <Portal>
-          <Menu
-            active={this.state.active}
-            ref={ref => (this.menu = ref)}
-            style={style}
-          >
-            {this.state.link ? (
-              <LinkToolbar
-                {...this.props}
-                link={this.state.link}
-                onBlur={this.hideLinkToolbar}
-              />
-            ) : (
-              <FormattingToolbar
-                onCreateLink={this.showLinkToolbar}
-                {...this.props}
-              />
-            )}
-          </Menu>
-        </Portal>
-      </React.Fragment>
+    const root = document.body;
+
+    return ReactDOM.createPortal(
+      <Menu
+        active={this.state.active}
+        ref={ref => (this.menu = ref)}
+        style={style}
+      >
+        {this.state.link ? (
+          <LinkToolbar
+            {...this.props}
+            link={this.state.link}
+            onBlur={this.hideLinkToolbar}
+          />
+        ) : (
+          <FormattingToolbar
+            onCreateLink={this.showLinkToolbar}
+            {...this.props}
+          />
+        )}
+      </Menu>,
+      root
     );
   }
 }

@@ -12,10 +12,10 @@ function ChromePlugin() {
 
     return (
       <React.Fragment>
+        {children}
         {!props.readOnly && <Toolbar value={editor.value} editor={editor} />}
         {/* {!props.readOnly && <BlockInsert editor={editor} />} */}
         {/* {props.toc && <Contents editor={editor} />} */}
-        {children}
       </React.Fragment>
     );
   }
