@@ -16,7 +16,7 @@ import KeyboardBehavior from "./plugins/KeyboardBehavior";
 import KeyboardShortcuts from "./plugins/KeyboardShortcuts";
 import MarkdownShortcuts from "./plugins/MarkdownShortcuts";
 import MarkdownPaste from "./plugins/MarkdownPaste";
-import Hashtags from "./plugins/Hashtags";
+// import Hashtags from "./plugins/Hashtags";
 import Ellipsis from "./plugins/Ellipsis";
 import Embeds from "./plugins/Embeds";
 import Chrome from "./plugins/Chrome";
