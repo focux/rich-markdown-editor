@@ -96,7 +96,7 @@ const createPlugins = ({
     Ellipsis(),
     TrailingBlock({ type: "paragraph" }),
     Chrome(),
-    Hashtags(),
+    // Hashtags(),
   ];
 };
 
