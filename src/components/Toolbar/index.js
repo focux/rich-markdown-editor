@@ -165,7 +165,7 @@ export default class Toolbar extends React.Component<Props, State> {
     }
 
     return (
-      <div>
+      <React.Fragment>
         <Portal>
           <Menu
             active={this.state.active}
@@ -186,7 +186,7 @@ export default class Toolbar extends React.Component<Props, State> {
             )}
           </Menu>
         </Portal>
-      </div>
+      </React.Fragment>
     );
   }
 }
