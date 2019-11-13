@@ -39,12 +39,12 @@
     "slate-paste-linkify": "^0.7.0",
     "slate-react": "^0.21.20",
     "slate-schema-violations": "^0.1.39",
-    "slugify": "^1.3.4",
-    "styled-components": "^4.3.2"
+    "slugify": "^1.3.4"
   },
   "peerDependencies": {
     "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react-dom": "^16.8.6",
+    "styled-components": "^4.3.2"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
