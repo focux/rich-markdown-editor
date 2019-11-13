@@ -69,6 +69,17 @@ class Toolbar extends React.Component<Props, State> {
     const { editor, type, active } = this.props;
     if (!this.state.top && !this.state.left) return null;
 
+    const canUseDOM = !!(
+      typeof window !== "undefined" &&
+      window.document &&
+      window.document.createElement
+    );
+
+    // Portals doesn't work good on SSR.
+    if (!canUseDOM) {
+      return null;
+    }
+
     return (
       <Portal>
         <Menu active={active} style={this.state}>

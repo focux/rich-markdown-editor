@@ -136,6 +136,17 @@ class BlockInsert extends React.Component<Props, State> {
     const { theme } = this.props;
     const style = { top: `${this.state.top}px`, left: `${this.state.left}px` };
 
+    const canUseDOM = !!(
+      typeof window !== "undefined" &&
+      window.document &&
+      window.document.createElement
+    );
+
+    // Portals doesn't work good on SSR.
+    if (!canUseDOM) {
+      return null;
+    }
+
     return (
       <React.Fragment>
         <span ref={this.setRef} />

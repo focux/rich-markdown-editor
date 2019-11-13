@@ -153,6 +153,17 @@ export default class Toolbar extends React.Component<Props, State> {
       left: this.state.left,
     };
 
+    const canUseDOM = !!(
+      typeof window !== "undefined" &&
+      window.document &&
+      window.document.createElement
+    );
+
+    // Portals doesn't work good on SSR.
+    if (!canUseDOM) {
+      return null;
+    }
+
     return (
       <Portal>
         <Menu
