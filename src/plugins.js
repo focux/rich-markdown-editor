@@ -59,10 +59,10 @@ const createPlugins = ({
         return true;
       },
     }),
-    InsertImages({
-      extensions: ["png", "jpg", "jpeg", "gif", "webp"],
-      insertImage: (editor, file) => editor.insertImageFile(file),
-    }),
+    // InsertImages({
+    //   extensions: ["png", "jpg", "jpeg", "gif", "webp"],
+    //   insertImage: (editor, file) => editor.insertImageFile(file),
+    // }),
     EditCode({
       containerType: "code",
       lineType: "code-line",

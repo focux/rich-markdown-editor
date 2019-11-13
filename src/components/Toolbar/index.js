@@ -10,7 +10,7 @@ import LinkToolbar from "./LinkToolbar";
 
 type Props = {
   editor: Editor,
-  value: Value,
+  value: Value
 };
 
 type State = {
@@ -18,7 +18,7 @@ type State = {
   link: ?Node,
   top: string,
   left: string,
-  mouseDown: boolean,
+  mouseDown: boolean
 };
 
 export default class Toolbar extends React.Component<Props, State> {
@@ -27,7 +27,7 @@ export default class Toolbar extends React.Component<Props, State> {
     mouseDown: false,
     link: undefined,
     top: "",
-    left: "",
+    left: ""
   };
 
   menu: ?HTMLElement;
@@ -90,7 +90,7 @@ export default class Toolbar extends React.Component<Props, State> {
           active: false,
           link: undefined,
           top: "",
-          left: "",
+          left: ""
         };
 
         if (!isEqual(this.state, newState)) {
@@ -115,7 +115,7 @@ export default class Toolbar extends React.Component<Props, State> {
       mouseDown: this.state.mouseDown,
       link: this.state.link || link,
       top: undefined,
-      left: undefined,
+      left: undefined
     };
     const padding = 16;
     let rect;
@@ -150,7 +150,7 @@ export default class Toolbar extends React.Component<Props, State> {
   render() {
     const style = {
       top: this.state.top,
-      left: this.state.left,
+      left: this.state.left
     };
 
     const canUseDOM = !!(
@@ -165,26 +165,28 @@ export default class Toolbar extends React.Component<Props, State> {
     }
 
     return (
-      <Portal>
-        <Menu
-          active={this.state.active}
-          ref={ref => (this.menu = ref)}
-          style={style}
-        >
-          {this.state.link ? (
-            <LinkToolbar
-              {...this.props}
-              link={this.state.link}
-              onBlur={this.hideLinkToolbar}
-            />
-          ) : (
-            <FormattingToolbar
-              onCreateLink={this.showLinkToolbar}
-              {...this.props}
-            />
-          )}
-        </Menu>
-      </Portal>
+      <div>
+        <Portal>
+          <Menu
+            active={this.state.active}
+            ref={ref => (this.menu = ref)}
+            style={style}
+          >
+            {this.state.link ? (
+              <LinkToolbar
+                {...this.props}
+                link={this.state.link}
+                onBlur={this.hideLinkToolbar}
+              />
+            ) : (
+              <FormattingToolbar
+                onCreateLink={this.showLinkToolbar}
+                {...this.props}
+              />
+            )}
+          </Menu>
+        </Portal>
+      </div>
     );
   }
 }
