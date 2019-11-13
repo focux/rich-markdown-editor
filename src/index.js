@@ -125,6 +125,10 @@ class RichMarkdownEditor extends React.PureComponent<Props, State> {
 
   setEditorRef = (ref: Editor) => {
     this.editor = ref;
+
+    if (this.props.innerRef) {
+      this.props.innerRef.current = ref;
+    }
   };
 
   value = (): string => {
