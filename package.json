@@ -24,7 +24,6 @@
     "eslint-plugin-flowtype": "^2.46.1",
     "eslint-plugin-prettier": "^2.6.0",
     "golery-slate-prism": "0.6.0-golery.2",
-    "immutable": "^3.8.2",
     "lodash": "^4.17.11",
     "outline-icons": "^1.9.0",
     "prismjs": "^1.16.0",
@@ -45,7 +44,8 @@
   "peerDependencies": {
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "styled-components": "^4.3.2"
+    "styled-components": "^4.3.2",
+    "immutable": "^3.8.2"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
