@@ -11,7 +11,7 @@ import CollapseOnEscape from "slate-collapse-on-escape";
 import Prism from "golery-slate-prism";
 import Placeholder from "./plugins/Placeholder";
 import EditList from "./plugins/EditList";
-import CollapsableHeadings from "./plugins/CollapsableHeadings";
+// import CollapsableHeadings from "./plugins/CollapsableHeadings";
 import KeyboardBehavior from "./plugins/KeyboardBehavior";
 import KeyboardShortcuts from "./plugins/KeyboardShortcuts";
 import MarkdownShortcuts from "./plugins/MarkdownShortcuts";
@@ -87,7 +87,7 @@ const createPlugins = ({
     }),
     Embeds({ getComponent: getLinkComponent }),
     CollapseOnEscape({ toEdge: "end" }),
-    CollapsableHeadings(),
+    // CollapsableHeadings(),
     EditList,
     KeyboardBehavior(),
     KeyboardShortcuts(),
