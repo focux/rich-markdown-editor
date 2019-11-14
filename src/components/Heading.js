@@ -1,9 +1,7 @@
 // @flow
 import * as React from "react";
 import styled from "styled-components";
-import { CollapsedIcon } from "outline-icons";
 import type { SlateNodeProps } from "../types";
-import headingToSlug from "../lib/headingToSlug";
 import CopyToClipboard from "./CopyToClipboard";
 
 type Props = SlateNodeProps & {
@@ -13,56 +11,20 @@ type Props = SlateNodeProps & {
 };
 
 function Heading(props: Props) {
-  const {
-    node,
-    editor,
-    readOnly,
-    children,
-    level = 1,
-    attributes,
-    className,
-  } = props;
+  const { node, editor, children, level = 1, attributes, className } = props;
 
   const firstNode = editor.value.document.nodes.first() === node;
-  const slugish = headingToSlug(editor.value.document, node);
-  const showHash = readOnly && !!slugish;
   const Component = `h${level + (editor.props.headingsOffset || 0)}`;
   const pretitle = editor.props.pretitle || "";
   const title = node.text.trim();
   const startsWithPretitleAndSpace =
     pretitle && title.match(new RegExp(`^${pretitle}\\s`));
-  const pathName =
-    typeof window !== "undefined" ? window.location.pathname : "";
-  const origin = typeof window !== "undefined" ? window.location.origin : "";
-  const pathToHeading = `${pathName}#${slugish}`;
-  const collapsed = node.data.get("collapsed");
 
   return (
     <Component {...attributes} className={className}>
-      <HiddenAnchor id={slugish} />
-      <CollapseToggle
-        onClick={() => editor.toggleContentBelow(node)}
-        contentEditable={false}
-        collapsed={collapsed}
-        disabled={firstNode || !title}
-      >
-        <CollapsedIcon />
-      </CollapseToggle>
       <Wrapper hasPretitle={firstNode && startsWithPretitleAndSpace}>
         {children}
       </Wrapper>
-      {showHash && (
-        <Anchor
-          name={slugish}
-          onCopy={() =>
-            editor.props.onShowToast &&
-            editor.props.onShowToast("Link copied to clipboard")
-          }
-          text={`${origin}${pathToHeading}`}
-        >
-          <span>#</span>
-        </Anchor>
-      )}
     </Component>
   );
 }
@@ -96,13 +58,6 @@ const CollapseToggle = styled.a`
 const Wrapper = styled.div`
   display: inline;
   margin-left: ${(props: Props) => (props.hasPretitle ? "-1.2em" : 0)};
-`;
-
-const HiddenAnchor = styled.a`
-  visibility: hidden;
-  display: block;
-  position: relative;
-  top: -50px;
 `;
 
 const Anchor = styled(CopyToClipboard)`
