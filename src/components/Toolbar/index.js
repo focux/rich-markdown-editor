@@ -1,7 +1,6 @@
 // @flow
 import * as React from "react";
 import ReactDOM from "react-dom";
-import { Portal } from "react-portal";
 import { Editor, findDOMNode } from "slate-react";
 import { Node, Value } from "slate";
 import styled from "styled-components";
@@ -11,7 +10,7 @@ import LinkToolbar from "./LinkToolbar";
 
 type Props = {
   editor: Editor,
-  value: Value
+  value: Value,
 };
 
 type State = {
@@ -19,7 +18,7 @@ type State = {
   link: ?Node,
   top: string,
   left: string,
-  mouseDown: boolean
+  mouseDown: boolean,
 };
 
 export default class Toolbar extends React.Component<Props, State> {
@@ -28,7 +27,7 @@ export default class Toolbar extends React.Component<Props, State> {
     mouseDown: false,
     link: undefined,
     top: "",
-    left: ""
+    left: "",
   };
 
   menu: ?HTMLElement;

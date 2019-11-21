@@ -1,7 +1,7 @@
 // @flow
 import * as React from "react";
 import { Editor } from "slate";
-import Contents from "../components/Contents";
+// import Contents from "../components/Contents";
 import Toolbar from "../components/Toolbar";
 // import BlockInsert from "../components/BlockInsert";
 import type { Props } from "../";

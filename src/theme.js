@@ -14,13 +14,12 @@ const colors = {
   greyLight: "#F4F7FA",
   grey: "#E8EBED",
   greyMid: "#9BA6B2",
-  greyDark: "#DAE1E9",
+  greyDark: "#DAE1E9"
 };
 
 export const base = {
   ...colors,
-  fontFamily:
-    "-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen, Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif",
+  fontFamily: "inherit",
   fontFamilyMono:
     "'SFMono-Regular',Consolas,'Liberation Mono', Menlo, Courier,monospace",
   fontWeight: 400,
@@ -44,7 +43,7 @@ export const base = {
   codeStatement: "#22a2c9",
   codePlaceholder: "#3d8fd1",
   codeInserted: "#202746",
-  codeImportant: "#c94922",
+  codeImportant: "#c94922"
 };
 
 export const light: Theme = {
@@ -70,7 +69,7 @@ export const light: Theme = {
   codeBackground: colors.greyLight,
   codeBorder: colors.grey,
   horizontalRule: colors.grey,
-  imageErrorBackground: colors.greyLight,
+  imageErrorBackground: colors.greyLight
 };
 
 export const dark: Theme = {
@@ -97,7 +96,7 @@ export const dark: Theme = {
   codeBorder: colors.lightBlack,
   codeString: "#3d8fd1",
   horizontalRule: colors.lightBlack,
-  imageErrorBackground: "rgba(0, 0, 0, 0.5)",
+  imageErrorBackground: "rgba(0, 0, 0, 0.5)"
 };
 
 export default light;
