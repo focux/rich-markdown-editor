@@ -29,10 +29,8 @@ export default function MarkdownShortcuts() {
         return onDash(ev, editor, next);
       case "`":
         return onBacktick(ev, editor, next);
-      case " ":
-        return onSpace(ev, editor, next);
       default:
-        return next();
+        return onSpace(ev, editor, next);
     }
   }
 
