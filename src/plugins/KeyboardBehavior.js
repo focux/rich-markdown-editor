@@ -47,11 +47,6 @@ export default function KeyboardBehavior() {
 
     if (startBlock.type.match(/(heading|block-quote)/)) {
       ev.preventDefault();
-
-      // if the heading is collapsed then show everything now so the user
-      // isn't editing in a weird state with some content hidden
-      editor.showContentBelow(startBlock);
-
       // Hitting enter in a heading or blockquote will split the node at that
       // point and make the new node a paragraph
       if (endOffset > 0) {
@@ -98,15 +93,6 @@ export default function KeyboardBehavior() {
     }
 
     if (selection.isExpanded) {
-      // If we're about to remove a heading then ensure that its not collapsed
-      if (
-        selection.start.offset === 0 &&
-        selection.end.offset === startBlock.text.length &&
-        startBlock.type.match(/heading/)
-      ) {
-        editor.showContentBelow(startBlock);
-      }
-
       return next();
     }
 
@@ -116,10 +102,6 @@ export default function KeyboardBehavior() {
         return next();
       ev.preventDefault();
 
-      // If we're about to remove a heading then ensure that its not collapsed
-      if (startBlock.type.match(/heading/)) {
-        editor.showContentBelow(startBlock);
-      }
       editor.setBlocks("paragraph");
 
       if (startBlock.type === "list-item") {
